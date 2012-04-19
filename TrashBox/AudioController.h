@@ -16,6 +16,7 @@
 @property bool isInit;
 @property bool inputDeviceFound;
 
+
 -(bool) audioInit;
 -(bool) setupAudioSession;
 -(id) setFilterChain;
