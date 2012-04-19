@@ -12,6 +12,7 @@
 		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
 		8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9932153F937000E0EB75 /* AudioUnit.framework */; };
 		8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9934153F937500E0EB75 /* CoreAudio.framework */; };
+		8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.m */; };
 		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
 		CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 		8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8AAF9932153F937000E0EB75 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		8AAF9934153F937500E0EB75 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		8AAF9940153F9AD900E0EB75 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		8AAF9941153F9AD900E0EB75 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3371E9153E64DD004CBCCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD3371EB153E64DD004CBCCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				CD3371F8153E64DD004CBCCB /* AppDelegate.h */,
 				CD3371F9153E64DD004CBCCB /* AppDelegate.m */,
 				CD3371FB153E64DD004CBCCB /* ViewController.h */,
+				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
+				8AAF9941153F9AD900E0EB75 /* AudioController.m */,
 				CD3371FC153E64DD004CBCCB /* ViewController.m */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
 				CD3371F0153E64DD004CBCCB /* Supporting Files */,
@@ -281,6 +286,7 @@
 				CD3371F6153E64DD004CBCCB /* main.m in Sources */,
 				CD3371FA153E64DD004CBCCB /* AppDelegate.m in Sources */,
 				CD3371FD153E64DD004CBCCB /* ViewController.m in Sources */,
+				8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
