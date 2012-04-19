@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AudioUnit/AudioUnit.h>
 
 @interface ViewController : UIViewController
 

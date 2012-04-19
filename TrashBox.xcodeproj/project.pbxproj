@@ -10,8 +10,6 @@
 		8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992B153F935D00E0EB75 /* Accelerate.framework */; };
 		8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992E153F936300E0EB75 /* AVFoundation.framework */; };
 		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
-		8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9932153F937000E0EB75 /* AudioUnit.framework */; };
-		8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9934153F937500E0EB75 /* CoreAudio.framework */; };
 		8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.m */; };
 		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
 		CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
@@ -26,7 +24,7 @@
 		CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
-		CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6289E4153F9352006A314C /* AudioToolbox.framework */; };
+		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +41,6 @@
 		8AAF992B153F935D00E0EB75 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8AAF992E153F936300E0EB75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		8AAF9932153F937000E0EB75 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
-		8AAF9934153F937500E0EB75 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		8AAF9940153F9AD900E0EB75 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
 		8AAF9941153F9AD900E0EB75 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +62,8 @@
 		CD337211153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD337213153E64DD004CBCCB /* TrashBoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashBoxTests.h; sourceTree = "<group>"; };
 		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
-		CD6289E4153F9352006A314C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CDECC62D153FBE35005640A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		CDECC62F153FBE3E005640A7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */,
-				8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */,
 				8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */,
+				CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */,
 				8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */,
 				8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */,
 				CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */,
@@ -120,8 +116,8 @@
 		CD3371E8153E64DD004CBCCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8AAF9934153F937500E0EB75 /* CoreAudio.framework */,
-				8AAF9932153F937000E0EB75 /* AudioUnit.framework */,
+				CDECC62F153FBE3E005640A7 /* AudioUnit.framework */,
+				CDECC62D153FBE35005640A7 /* CoreAudio.framework */,
 				8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */,
 				8AAF992E153F936300E0EB75 /* AVFoundation.framework */,
 				8AAF992B153F935D00E0EB75 /* Accelerate.framework */,
@@ -139,9 +135,9 @@
 				CD3371F8153E64DD004CBCCB /* AppDelegate.h */,
 				CD3371F9153E64DD004CBCCB /* AppDelegate.m */,
 				CD3371FB153E64DD004CBCCB /* ViewController.h */,
+				CD3371FC153E64DD004CBCCB /* ViewController.m */,
 				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
 				8AAF9941153F9AD900E0EB75 /* AudioController.m */,
-				CD3371FC153E64DD004CBCCB /* ViewController.m */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
 				CD3371F0153E64DD004CBCCB /* Supporting Files */,
 			);
