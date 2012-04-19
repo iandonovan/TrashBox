@@ -20,6 +20,7 @@
 		CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
+		CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6289E4153F9352006A314C /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		CD337211153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD337213153E64DD004CBCCB /* TrashBoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashBoxTests.h; sourceTree = "<group>"; };
 		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
+		CD6289E4153F9352006A314C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */,
 				CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */,
 				CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */,
 				CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +103,7 @@
 		CD3371E8153E64DD004CBCCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD6289E4153F9352006A314C /* AudioToolbox.framework */,
 				CD3371E9153E64DD004CBCCB /* UIKit.framework */,
 				CD3371EB153E64DD004CBCCB /* Foundation.framework */,
 				CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */,
@@ -432,6 +436,7 @@
 				CD33721A153E64DD004CBCCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD33721B153E64DD004CBCCB /* Build configuration list for PBXNativeTarget "TrashBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +445,7 @@
 				CD33721D153E64DD004CBCCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

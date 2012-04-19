@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  TrashBox
 //
-//  Created by Ian Donovan on 4/17/12.
-//  Copyright (c) 2012 Tufts University. All rights reserved.
+//  Created by Ian Donovan, Dan Raisbeck, and Michael Siegel
+//  Copyright (c) 2012 Possum Kingdom. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
