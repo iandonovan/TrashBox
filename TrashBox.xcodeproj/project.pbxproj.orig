@@ -74,11 +74,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */,
+=======
 				8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */,
 				8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */,
 				8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */,
 				8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */,
 				8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */,
+>>>>>>> f7a1ae5c2bbca4cd56a22beea88316174bd39082
 				CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */,
 				CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */,
 				CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */,
@@ -120,11 +124,15 @@
 		CD3371E8153E64DD004CBCCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				CD6289E4153F9352006A314C /* AudioToolbox.framework */,
+=======
 				8AAF9934153F937500E0EB75 /* CoreAudio.framework */,
 				8AAF9932153F937000E0EB75 /* AudioUnit.framework */,
 				8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */,
 				8AAF992E153F936300E0EB75 /* AVFoundation.framework */,
 				8AAF992B153F935D00E0EB75 /* Accelerate.framework */,
+>>>>>>> f7a1ae5c2bbca4cd56a22beea88316174bd39082
 				CD3371E9153E64DD004CBCCB /* UIKit.framework */,
 				CD3371EB153E64DD004CBCCB /* Foundation.framework */,
 				CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */,
