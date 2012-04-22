@@ -9,6 +9,7 @@
 #import "AudioController.h"
 
 @implementation AudioController
+@synthesize isInit, inputDeviceFound;
 
 -(bool) audioInit {
     if([self setupAudioSession] == false)
@@ -22,7 +23,6 @@
     
     AVAudioSession *mySession = [AVAudioSession sharedInstance];
     [mySession setDelegate: self];
-    
     
     // tz change to play and record
 	// Assign the Playback category to the audio session.
