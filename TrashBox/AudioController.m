@@ -11,6 +11,8 @@
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 
+//make init function with all the code from viewdidload
+
 -(bool) audioInit {
     if([self setupAudioSession] == false)
     {

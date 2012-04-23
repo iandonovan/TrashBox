@@ -18,10 +18,35 @@
 
 #pragma mark - View lifecycle
 
+
 //Upon loading the view, we want to prepare the live audio capabilities.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /*
+    OSStatus status;
+    AudioComponentInstance audioUnit;
+    
+    UInt32 flag;
+	
+	// describe the audio unit
+	AudioComponentDescription desc;
+	desc.componentType = kAudioUnitType_Output;
+	desc.componentSubType = kAudioUnitSubType_RemoteIO;
+	desc.componentFlags = 0;
+	desc.componentFlagsMask = 0;
+	desc.componentManufacturer = kAudioUnitManufacturer_Apple;
+	
+	// get the component
+	AudioComponent inputComponent = AudioComponentFindNext(NULL, &desc);
+	
+	// get audio units
+	status = AudioComponentInstanceNew(inputComponent, &audioUnit);
+	NSAssert(status==noErr,@"suckk it");
+
+*/
+    
     
     //Set up the audio session
 	OSStatus setupAudioSessionError =
@@ -55,10 +80,10 @@
     compDesc.componentFlagsMask = 0;
     
     //Find the unit we're going to use
-    AudioUnit remoteIOUnit = NULL;
+    AudioComponentInstance remoteIOUnit;
     AudioComponent remoteIOComponent = AudioComponentFindNext(NULL, &compDesc);
     OSErr setupError = AudioComponentInstanceNew(remoteIOComponent, &remoteIOUnit);
-    NSAssert(setupError = noErr, @"Couldn't get Remote IO unit instance");
+    NSAssert(setupError == noErr, @"Couldn't get Remote IO unit instance");
     
     //Enable output on the remote IO unit
     UInt32 oneFlag = 1;
@@ -84,14 +109,15 @@
     //Make the audio unit connection property
     AudioUnitConnection connex = makeConnection(remoteIOUnit, bus0, bus1);
     setupError = AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_MakeConnection, kAudioUnitScope_Input, bus0, &connex, sizeof(connex));
-    NSAssert(setupError = noErr, @"Could not establish audio unit connection property");
+    NSAssert(setupError == noErr, @"Could not establish audio unit connection property");
     
     //GOGOGOGOGO
     setupError = AudioUnitInitialize(remoteIOUnit);
     NSAssert(setupError == noErr, @"Could not initialize the remote IO unit");
     
     OSStatus startErr = AudioOutputUnitStart(remoteIOUnit);
-    NSAssert(startErr, @"Could not start the remote IO unit");
+    NSAssert(startErr == noErr, @"Could not start the remote IO unit");
+     
     
     
 }
