@@ -12,7 +12,4 @@
 
 @interface ViewController : UIViewController
 
-AudioStreamBasicDescription makeASBD(Float64 sampleRate);
-AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
-
 @end

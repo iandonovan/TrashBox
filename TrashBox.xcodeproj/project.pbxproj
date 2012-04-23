@@ -10,7 +10,7 @@
 		8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992B153F935D00E0EB75 /* Accelerate.framework */; };
 		8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992E153F936300E0EB75 /* AVFoundation.framework */; };
 		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
-		8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.m */; };
+		8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.mm */; };
 		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
 		CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */; };
@@ -42,7 +42,7 @@
 		8AAF992E153F936300E0EB75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8AAF9940153F9AD900E0EB75 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
-		8AAF9941153F9AD900E0EB75 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		8AAF9941153F9AD900E0EB75 /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
 		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3371E9153E64DD004CBCCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD3371EB153E64DD004CBCCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,7 +137,7 @@
 				CD3371FB153E64DD004CBCCB /* ViewController.h */,
 				CD3371FC153E64DD004CBCCB /* ViewController.mm */,
 				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
-				8AAF9941153F9AD900E0EB75 /* AudioController.m */,
+				8AAF9941153F9AD900E0EB75 /* AudioController.mm */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
 				CD3371F0153E64DD004CBCCB /* Supporting Files */,
 			);
@@ -284,7 +284,7 @@
 				CD3371F6153E64DD004CBCCB /* main.m in Sources */,
 				CD3371FA153E64DD004CBCCB /* AppDelegate.m in Sources */,
 				CD3371FD153E64DD004CBCCB /* ViewController.mm in Sources */,
-				8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */,
+				8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

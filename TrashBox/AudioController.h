@@ -2,8 +2,8 @@
 //  AudioController.h
 //  TrashBox
 //
-//  Created by Dan Raisbeck on 4/18/12.
-//  Copyright (c) 2012 Tufts University. All rights reserved.
+//  Created by Ian Donovan, Dan Raisbeck, and Michael Siegel
+//  Copyright (c) 2012 Possum Kingdom. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,9 +16,13 @@
 @property bool isInit;
 @property bool inputDeviceFound;
 
--(bool) audioInit;
--(bool) setupAudioSession;
--(id) setFilterChain;
--(id) getLineInfo;
+-(id)init;
+//-(bool)setupAudioSession;
+
+AudioStreamBasicDescription makeASBD(Float64 sampleRate);
+AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
+
+//-(id) setFilterChain;
+//-(id) getLineInfo;
 
 @end
