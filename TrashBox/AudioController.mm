@@ -15,6 +15,8 @@
 {
     if(self == [super init])
     {
+        isInit = NO;
+        
         //Set up the audio session
         OSStatus setupAudioSessionError =
         AudioSessionInitialize(
@@ -86,6 +88,7 @@
         NSAssert(startErr == noErr, @"Could not start the remote IO unit");
     }
     
+    isInit = YES;
     return self;
 }
 

@@ -11,5 +11,8 @@
 #import <AudioUnit/AudioUnit.h>
 
 @interface ViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UISlider *gainSlider;
+
+-(IBAction)sliderChanged:(id)sender;
 
 @end

@@ -10,7 +10,13 @@
 #import "AudioController.h"
 
 @implementation ViewController
+@synthesize gainSlider;
 
+
+-(IBAction)sliderChanged:(id)sender
+{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
