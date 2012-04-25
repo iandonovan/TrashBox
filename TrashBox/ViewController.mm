@@ -12,10 +12,9 @@
 @implementation ViewController
 @synthesize gainSlider;
 
-
 -(IBAction)sliderChanged:(id)sender
 {
-    
+    [daController setGainValue:[gainSlider value]];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -30,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AudioController *daController = [[AudioController alloc] init];
+    daController = [[AudioController alloc] init];
+    
 }
 
 //Set up the AudioStreamBasicDescription

@@ -16,6 +16,7 @@
 @property bool isInit;
 @property bool inputDeviceFound;
 
+
 -(id)init;
 //-(bool)setupAudioSession;
 
@@ -23,9 +24,15 @@ AudioStreamBasicDescription makeASBD(Float64 sampleRate);
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
 
 
+
 typedef struct {
     AudioUnit rioUnit;
+    float gainSliderValue;
 } EffectState;
+
+
+-(IBAction) handleGainSliderValueChanged:(EffectState)effectState; //Change slider value
+
 
 OSStatus MyAURenderCallback (
                              void * inRefCon,
@@ -36,6 +43,16 @@ OSStatus MyAURenderCallback (
                              AudioBufferList *       ioData);
 
 
+typedef OSStatus (*AURenderCallback) (
+                                      void                        *inRefCon,
+                                      AudioUnitRenderActionFlags  *ioActionFlags,
+                                      const AudioTimeStamp        *inTimeStamp,
+                                      UInt32                      inBusNumber,
+                                      UInt32                      inNumberFrames,
+                                      AudioBufferList             *ioData
+                                      );
+
+-(void)setGainValue:(float)val;
 //-(id) setFilterChain;
 //-(id) getLineInfo;
 

@@ -11,6 +11,10 @@
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 
+
+AudioUnit remoteIOUnit;
+EffectState effectState; 
+
 -(id)init
 {
     if(self == [super init])
@@ -49,7 +53,8 @@
         compDesc.componentFlagsMask = 0;
         
         //Find the unit we're going to use
-        AudioComponentInstance remoteIOUnit;
+        
+        
         AudioComponent remoteIOComponent = AudioComponentFindNext(NULL, &compDesc);
         OSErr setupError = AudioComponentInstanceNew(remoteIOComponent, &remoteIOUnit);
         NSAssert(setupError == noErr, @"Couldn't get Remote IO unit instance");
@@ -78,15 +83,13 @@
         //New Changes by Mike 4/24!!!!!!
         
         
-        EffectState effectState; //Created instance. Maybe shouldn't be here
-        
-        
+
+        effectState.rioUnit = remoteIOUnit;    
+        effectState.gainSliderValue = .5;  //initial value
         
         AURenderCallbackStruct callbackStruct;
         callbackStruct.inputProc = MyAURenderCallback; //issues
         callbackStruct.inputProcRefCon = &effectState;
-        
-        
         
         setupError = 
         AudioUnitSetProperty(remoteIOUnit, 
@@ -98,17 +101,14 @@
         NSAssert(setupError == noErr,
                  @"Couldn't set RIO render callback on bus 0");
         
+
+        //Disable connection for AU Callback. Otherwise, short circuits RemoteIO
         
-        
-        
-        
-        
-        
-        
-        //Make the audio unit connection property
-        AudioUnitConnection connex = makeConnection(remoteIOUnit, bus0, bus1);
-        setupError = AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_MakeConnection, kAudioUnitScope_Input, bus0, &connex, sizeof(connex));
-        NSAssert(setupError == noErr, @"Could not establish audio unit connection property");
+//        //Make the audio unit connection property
+//        AudioUnitConnection connex = makeConnection(remoteIOUnit, bus0, bus1);
+//        setupError = AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_MakeConnection, kAudioUnitScope_Input, bus0, &connex, sizeof(connex));
+//        NSAssert(setupError == noErr, @"Could not establish audio unit connection property");
+//        
         
         //GOGOGOGOGO
         setupError = AudioUnitInitialize(remoteIOUnit);
@@ -154,26 +154,8 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
 }
 
 
-//Mike structs
 
-
-
-
-
-
-
-
-
-typedef OSStatus (*AURenderCallback) (
-                                      void                        *inRefCon,
-                                      AudioUnitRenderActionFlags  *ioActionFlags,
-                                      const AudioTimeStamp        *inTimeStamp,
-                                      UInt32                      inBusNumber,
-                                      UInt32                      inNumberFrames,
-                                      AudioBufferList             *ioData
-                                      );
-
-
+//New funcs
 OSStatus MyAURenderCallback (
                              void * inRefCon,
                              AudioUnitRenderActionFlags * ioActionFlags,
@@ -183,17 +165,42 @@ OSStatus MyAURenderCallback (
                              AudioBufferList *       ioData) 
 {
     
+
     EffectState * effectState = (EffectState*) inRefCon;
     AudioUnit rioUnit = effectState->rioUnit;
     
-    OSStatus renderErr = noErr;
+    OSStatus renderErr = noErr;     //call Render!!!!
     
     UInt32 bus1 = 1;
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
     
-   // NSAssert(renderErr == noErr, @"Couldn't render that shit tho");
-    
-    
+        
+    for (int bufCount=0; bufCount<ioData->mNumberBuffers; bufCount++) //for all buffers
+    {
+        AudioBuffer buf = ioData->mBuffers[bufCount]; //copy buffer
+
+        SInt16* bufData = (SInt16*)buf.mData;
+        
+        
+        for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
+        { 
+            bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
+                        
+           // NSLog(@"%f",effectState->gainSliderValue); THIS WILL STOP AUDIO OUTPUT
+            
+            
+            //Messing with random (white noise)
+                    //NSLog(@"%f", ((float)rand()/pow(2, 32)*2-1));
+                    //bufData[i] = (SInt16)(random()*effectState->gainSliderValue);
+        }
+                
+    }
+      
+}
+
+// objc method to change audioEffect->gainSliderValue, call this method from ViewController
+-(void)setGainValue:(float)val {
+    effectState.gainSliderValue = val;
 }
 
 

@@ -9,10 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
+#import "AudioController.h"
 
-@interface ViewController : UIViewController
+//@class AudioController;
+
+@interface ViewController : UIViewController {
+
+UISlider *gainSlider;
+    AudioController *daController;
+
+}
+
 @property (nonatomic, strong) IBOutlet UISlider *gainSlider;
 
 -(IBAction)sliderChanged:(id)sender;
+
 
 @end
