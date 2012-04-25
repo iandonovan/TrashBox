@@ -75,6 +75,36 @@
         setupError = AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, bus0, &datASBD, sizeof(datASBD));
         NSAssert(setupError == noErr, @"Could not set ASBD for remote IO input scope -- bus 0");
         
+        //New Changes by Mike 4/24!!!!!!
+        
+        
+        EffectState effectState; //Created instance. Maybe shouldn't be here
+        
+        
+        
+        AURenderCallbackStruct callbackStruct;
+        callbackStruct.inputProc = MyAURenderCallback; //issues
+        callbackStruct.inputProcRefCon = &effectState;
+        
+        
+        
+        setupError = 
+        AudioUnitSetProperty(remoteIOUnit, 
+                             kAudioUnitProperty_SetRenderCallback, 
+                             kAudioUnitScope_Global, 
+                             bus0, 
+                             &callbackStruct, 
+                             sizeof(callbackStruct));
+        NSAssert(setupError == noErr,
+                 @"Couldn't set RIO render callback on bus 0");
+        
+        
+        
+        
+        
+        
+        
+        
         //Make the audio unit connection property
         AudioUnitConnection connex = makeConnection(remoteIOUnit, bus0, bus1);
         setupError = AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_MakeConnection, kAudioUnitScope_Input, bus0, &connex, sizeof(connex));
@@ -124,26 +154,73 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
 }
 
 
+//Mike structs
+
+
+
+
+
+
+
+
+
+typedef OSStatus (*AURenderCallback) (
+                                      void                        *inRefCon,
+                                      AudioUnitRenderActionFlags  *ioActionFlags,
+                                      const AudioTimeStamp        *inTimeStamp,
+                                      UInt32                      inBusNumber,
+                                      UInt32                      inNumberFrames,
+                                      AudioBufferList             *ioData
+                                      );
+
+
+OSStatus MyAURenderCallback (
+                             void * inRefCon,
+                             AudioUnitRenderActionFlags * ioActionFlags,
+                             const AudioTimeStamp *  inTimeStamp,
+                             UInt32                  inBusNumber,
+                             UInt32                  inNumberFrames,
+                             AudioBufferList *       ioData) 
+{
+    
+    EffectState * effectState = (EffectState*) inRefCon;
+    AudioUnit rioUnit = effectState->rioUnit;
+    
+    OSStatus renderErr = noErr;
+    
+    UInt32 bus1 = 1;
+    renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
+    
+   // NSAssert(renderErr == noErr, @"Couldn't render that shit tho");
+    
+    
+}
+
+
+
+
+
+
 //DAN CODE STARTS HERE
 //AudioSessions are used for interrupts, so we'll add them at the end
 /*
--(bool) setupAudioSession {
-     AVAudioSession *mySession = [AVAudioSession sharedInstance];
-     [mySession setDelegate: self];
-     
-     // tz change to play and record
-     // Assign the Playback category to the audio session.
-     NSError *audioSessionError = nil;
-     [mySession setCategory: AVAudioSessionCategoryPlayAndRecord
-     error: &audioSessionError];
-     
-     if (audioSessionError != nil) {
-     NSLog (@"Error setting audio session category.");
-     return false;
-     
-     }   
-     return true;
-}
+ -(bool) setupAudioSession {
+ AVAudioSession *mySession = [AVAudioSession sharedInstance];
+ [mySession setDelegate: self];
+ 
+ // tz change to play and record
+ // Assign the Playback category to the audio session.
+ NSError *audioSessionError = nil;
+ [mySession setCategory: AVAudioSessionCategoryPlayAndRecord
+ error: &audioSessionError];
+ 
+ if (audioSessionError != nil) {
+ NSLog (@"Error setting audio session category.");
+ return false;
+ 
+ }   
+ return true;
+ }
  */
 
 @end

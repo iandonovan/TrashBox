@@ -22,6 +22,20 @@
 AudioStreamBasicDescription makeASBD(Float64 sampleRate);
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
 
+
+typedef struct {
+    AudioUnit rioUnit;
+} EffectState;
+
+OSStatus MyAURenderCallback (
+                             void * inRefCon,
+                             AudioUnitRenderActionFlags * ioActionFlags,
+                             const AudioTimeStamp *  inTimeStamp,
+                             UInt32                  inBusNumber,
+                             UInt32                  inNumberFrames,
+                             AudioBufferList *       ioData);
+
+
 //-(id) setFilterChain;
 //-(id) getLineInfo;
 
