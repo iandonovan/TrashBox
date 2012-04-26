@@ -1,0 +1,7 @@
+build/*
+*.pbxuser
+*.mode1v3
+*.xcuserstate
+
+.DS_Store
+profile
