@@ -10,7 +10,7 @@
 #import "AudioController.h"
 
 @implementation ViewController
-@synthesize gainSlider, gainOnOff;
+@synthesize gainSlider, gainOnOff, smoothing1, smoothing2;
 @synthesize whichEffect;
 
 //Change the Audio Controller's gain value to be that of the slider
@@ -30,6 +30,16 @@
     [daController setWhichEffect:effectChoice];
 }
 
+-(IBAction)smoothingSwitch1Hit:(id)sender
+{
+    [graphView toggleSmooth1:[sender isOn]];
+}
+
+-(IBAction)smoothingSwitch2Hit:(id)sender
+{
+    [graphView toggleSmooth2:[sender isOn]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -44,6 +54,7 @@
 {
     [super viewDidLoad];
     daController = [[AudioController alloc] init];
+    graphView = [[Draw2D alloc] init];
     
 }
 
