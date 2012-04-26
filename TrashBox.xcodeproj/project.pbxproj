@@ -29,7 +29,6 @@
 		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
 		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
-		FE13BBCF15491DBF00AA9B9A /* steel_trash_can2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE13BBCE15491DBF00AA9B9A /* steel_trash_can2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
 		CDECC62D153FBE35005640A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CDECC62F153FBE3E005640A7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
-		FE13BBCE15491DBF00AA9B9A /* steel_trash_can2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = steel_trash_can2.jpg; path = ../../../Desktop/steel_trash_can2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 				CD33720D153E64DD004CBCCB /* TrashBoxTests */,
 				CD3371E8153E64DD004CBCCB /* Frameworks */,
 				CD3371E6153E64DD004CBCCB /* Products */,
-				FE13BBCE15491DBF00AA9B9A /* steel_trash_can2.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */,
-				FE13BBCF15491DBF00AA9B9A /* steel_trash_can2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

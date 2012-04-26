@@ -175,7 +175,7 @@ OSStatus MyAURenderCallback (
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
         
     float* fBuffer = new float[1024]; //BAD, HARD CODED
-        
+    
     for (int bufCount=0; bufCount<ioData->mNumberBuffers; bufCount++) //for all buffers
     {
         AudioBuffer buf = ioData->mBuffers[bufCount]; //copy buffer
@@ -197,8 +197,8 @@ OSStatus MyAURenderCallback (
                 //Simple nonlinear transformation -- sounds RAWK
                 fBuffer[i] = atanf(.015*fBuffer[i]);
                 bufData[i] = fBuffer[i]*9000;
+
             }
-            
             
             /* So the other one would go like
              if (effectState->gainOnOff && effectState->whichEffect==1)

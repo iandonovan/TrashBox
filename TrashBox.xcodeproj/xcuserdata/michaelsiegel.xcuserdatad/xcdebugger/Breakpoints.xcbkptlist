@@ -8,19 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TrashBox/AudioController.mm"
-<<<<<<< HEAD
-         timestampString = "357111817.064382"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
-=======
          timestampString = "357103404.365988"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "210"
          endingLineNumber = "210"
->>>>>>> 93202623f89f961caba99fa049bbd81d9ce4ecd0
          landmarkName = "MyAURenderCallback ( void * inRefCon, AudioUnitRenderActionFlags * ioActionFlags, const AudioTimeStamp * inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList * ioData )"
          landmarkType = "7">
       </FileBreakpoint>
