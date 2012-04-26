@@ -8,24 +8,37 @@
 
 #import "Draw2D.h"
 
-#define datapoints 128//16
-#define granularity 10//2520
+#define datapoints 24//16
+#define granularity 100//2520
+#define granularity2 15
 #define totalpoints datapoints*granularity
-#define averagepoints 8
+#define averagepoints 9
+#define averagepoints2 75
+#define bits16 65536
+#define shift16 32768
 
 @implementation Draw2D
 
-//extern bool moveaverage;
-
-CGFloat graph[datapoints];
-CGFloat pointfloat[datapoints*granularity];
+float lut[bits16];
+CGPoint graph[datapoints];
 CGPoint points[datapoints*granularity];
 CGPoint averaged[datapoints*granularity];
 CGFloat width;
 CGFloat height;
 int divisor;
 bool setup;
+bool smoothing;
+bool smoothing2;
 CGContextRef context;
+
+- (void)toggleSmooth1:(bool)state
+{
+    smoothing = state;
+}
+- (void)toggleSmooth2:(bool)state
+{
+    smoothing2 = state;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -36,44 +49,52 @@ CGContextRef context;
     return self;
 }
 
+- (float *)getLUTPointer:(id)sender
+{
+    return lut;
+}
+
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.
  */
-
 - (void)drawRect:(CGRect)rect
 {
     width = self.frame.size.width;
     height = self.frame.size.height;
     divisor = width / datapoints;
-    NSLog(@"Width: %f", width);
-    NSLog(@"Height: %f", height);
     context = UIGraphicsGetCurrentContext();
     int count = 0;
+    int count2 = 0;
     
-    //moveaverage = true;
-    
+    //draw vertical bars to separate datapoints
     CGContextSetLineWidth(context, 2.0);
     CGContextSetStrokeColorWithColor(context,[UIColor greenColor].CGColor);
-    for(int i=0; i<datapoints; i++)
+    for(int i=0; i<=datapoints; i++)
     {
-        CGContextMoveToPoint(context, width/datapoints *(i+1),0);
-        CGContextAddLineToPoint(context, width/datapoints*(i+1), height);
+        CGFloat vert = width/datapoints*i;
+        CGContextMoveToPoint(context, vert,0);
+        CGContextAddLineToPoint(context, vert, height);
     }
     CGContextStrokePath(context);
     CGContextBeginPath(context);
     
+    //initialize the graph variable to a linear function
     if(setup == false)
     {  
-        graph[0] = height;
-        for(int i=1; i<datapoints; i++)
+        smoothing = false;
+        smoothing2 = false;
+        for(int i=0; i<datapoints; i++)
         {
-            graph[i] = height - (height/width * (i+1) * divisor);
+            //special x values to allow data points to fall between vertical bars
+            CGFloat vert = width/datapoints*(i+0.5);
+            graph[i].x = vert;
+            graph[i].y = height - (height/width * (i+1) * divisor);
         }
-        pointfloat[0] = height;
         setup = true;
     }
     
+    //set up initial point for drawing
     CGPoint pi;
     pi.x = 0.0f;
     pi.y = height;
@@ -81,58 +102,165 @@ CGContextRef context;
     CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
     CGContextMoveToPoint(context, pi.x, pi.y);
     points[count] = pi;
-    pointfloat[count] = pi.y;
     count++;
-
-    for(int i=1; i<datapoints-2; i++)
-    {
+    
+    //pre-splining smoothing
+    if (smoothing == true) {
+        for(int i=0; i<datapoints; i++) {
+            int j = i - averagepoints/2;
+            averaged[i].y = 0;
+            averaged[i].x = graph[i].x;
+            while(j<(i+averagepoints/2)) {
+                if(j<0) {
+                    averaged[i].y += height;
+                }
+                else {
+                    averaged[i].y += graph[i].y;
+                }
+                j++;
+            }
+            averaged[i].y = averaged[i].y / averagepoints;
+        }
+    }
+    
+    
+    
+    //This smoothes out the graph my interpolating curves between points
+    for(int i=0; i<datapoints-2; i++) {
         CGPoint p0, p1, p2, p3;
-        p0.x = (i-1) * divisor;
-        p0.y = graph[i-1];
-        p1.x = i * divisor;
-        p1.y = graph[i];
-        p2.x = (i+1)*divisor;
-        p2.y = graph[i+1];
-        p3.x = (i+2) * divisor;
-        p3.y = graph[i+2];
+        //If first index, use mirrored point to help calculate smoothed line
         
-        for(int j = 1; j < granularity; j++)
-        {
+        if(smoothing == true) {
+            if(i==0) {
+                p0.x = -1 * averaged[0].x;
+                p0.y = 2*height - averaged[0].y;
+            }
+            else {
+                p0 = averaged[i-1];
+            }
+            p1 = averaged[i];
+            p2 = averaged[i+1];
+            p3 = averaged[i+2];
+        }
+        else {
+            if(i==0) {
+                p0.x = -1 * graph[0].x;
+                p0.y = 2*height - graph[0].y;
+            }
+            else {
+                p0 = graph[i-1];
+            }
+            p1 = graph[i];
+            p2 = graph[i+1];
+            p3 = graph[i+2];
+        }
+        
+        
+        for(int j = 1; j < granularity; j++) {
             float t = (float) j * (1.0f / (float) granularity);
             float tt = t*t;
             float ttt = tt * t;
             
             pi.x = 0.5 * (2*p1.x+(p2.x-p0.x)*t + (2*p0.x-5*p1.x+4*p2.x-p3.x)*tt + (3*p1.x-p0.x-3*p2.x+p3.x)*ttt);
             pi.y = 0.5 * (2*p1.y+(p2.y-p0.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*tt + (3*p1.y-p0.y-3*p2.y+p3.y)*ttt);
-            pointfloat[count] = pi.y;
-            points[count] = pi;
+            points[count].x = pi.x;
+            
+            //must account for boundary conditionsß
+            if(pi.y < 0.0f) {
+                points[count].y = 0.0f;
+            }
+            else if (pi.y > height) {
+                points[count].y = height;
+            }
+            else {
+                points[count].y = pi.y;
+            }
             count++;
         }
-        pointfloat[count] = p2.y;
         points[count] = p2;
         count++;
     }
     pi.x = width;
-    pi.y = graph[datapoints-1];
-    pointfloat[count] = pi.y;
+    pi.y = graph[datapoints-1].y;
     points[count] = pi;
     count++;
-    NSLog(@"Count = %d", count);
-    /*
-     averaged[0] = points[0];
-     for(int i = 0; i< count-1; i++)
-     {
-     averaged[i+1].y = (pointfloat[i] + pointfloat[i+1] + pointfloat[i+2])/3;
-     averaged[i+1].x = points[i+1].x;
-     }
-     averaged[count-1].x = width;
-     averaged[count-1].y = (2*graph[count-1] + graph[count-2])/3;
-     */
+    //NSLog(@"Count = %d", count);
+    
+    //post-splining smoothing
+    if(smoothing2 == true) {
+        for(int i = 0; i<count; i++) {
+            int j = i - averagepoints2/2;
+            averaged[i].y = 0;
+            averaged[i].x = points[i].x;
+            while(j<(i+averagepoints2/2)) {
+                if(j<0) {
+                    averaged[i].y += height;
+                }
+                else {
+                    averaged[i].y += points[i].y;
+                }
+                j++;
+            }
+            averaged[i].y = averaged[i].y / averagepoints2;
+        }
+        for(int i = 0; i<count; i++) {
+            points[i] = averaged[i];
+        }
+
+    }
+    //draw final graph
     for(int i = 0; i<count; i++)
     {
         CGContextAddLineToPoint(context, points[i].x, points[i].y);
     }
     CGContextStrokePath(context);
+    
+    //interpolate data. THIS IS MESSY AND I WILL FIX -dan
+    lut[shift16] = 0.0f;
+    for(int i = 0; i<count && count2 < shift16; i++)
+    {
+        CGFloat p0, p1, p2, p3, y;
+        //If first index, use mirrored point to help calculate smoothed line
+        if(i==0) {
+            p0 = 2*height - points[0].y;
+        }
+        else {
+            p0 = points[0].y;
+        }
+        p1 = points[i].y;
+        p2 = points[i+1].y;
+        p3 = points[i+2].y;
+        
+        for(int j = 1; j < granularity2 && count2 < shift16; j++) {
+            float t = (float) j * (1.0f / (float) granularity);
+            float tt = t*t;
+            float ttt = tt * t;
+            
+            y = 0.5 * (2*p1+(p2-p0)*t + (2*p0-5*p1+4*p2-p3)*tt + (3*p1-p0-3*p2+p3)*ttt);
+            
+            //must account for boundary conditionsß
+            if(y < 0.0f) {
+                lut[shift16+count2] = 1.0f;
+                lut[shift16-count2] = -1.0f;
+            }
+            else if (pi.y > height) {
+                lut[shift16+count2] = 0.0f;
+                lut[shift16-count2] = 0.0f;
+            }
+            else {
+                lut[shift16+count2] = 1 - y / height;
+                lut[shift16-count2] = y/height - 1;
+            }
+            count2++;
+        }
+        if(count2 < shift16)
+        {
+            lut[shift16+count2] = 1- p2/height;
+            lut[shift16-count2] = p2/height - 1;
+            count2++;
+        }
+    }
+    //NSLog(@"Count2 = %d", count2);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -140,9 +268,8 @@ CGContextRef context;
     CGPoint point = [touch locationInView:self]; 
     if(point.x >= 0 && point.x < width && point.y >=0 && point.y < height) {
         int temp = point.x / divisor;
-        graph[temp] = point.y;
+        graph[temp].y = point.y;
     }
-    NSLog(@"Touch Start - x: %f - y: %f", point.x, point.y);
     [self setNeedsDisplay];
 }
 
@@ -151,9 +278,8 @@ CGContextRef context;
     CGPoint point = [touch locationInView:self];
     if(point.x >= 0 && point.x < width && point.y >=0 && point.y < height) {
         int temp = point.x / divisor;
-        graph[temp] = point.y;
+        graph[temp].y = point.y;
     }
-    NSLog(@"Touch Moving - x: %f - y: %f", point.x, point.y);
     [self setNeedsDisplay];
 }
 
@@ -162,14 +288,12 @@ CGContextRef context;
     CGPoint point = [touch locationInView:self];
     if(point.x >= 0 && point.x < width && point.y >=0 && point.y < height) {
         int temp = point.x / divisor;
-        graph[temp] = point.y;
+        graph[temp].y = point.y;
     }
-    NSLog(@"Touch End - x: %f - y: %f", point.x, point.y);
     [self setNeedsDisplay];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touch Cancelled");
     
 }
 
