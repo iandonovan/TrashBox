@@ -16,7 +16,7 @@
 @property bool isInit;
 @property bool inputDeviceFound;
 @property bool onOrOff;
-@property int whichEffect;
+@property (nonatomic) int whichEffect;
 
 -(id)init; //initialize
 -(void)setGainValue:(float)val; //Set the gain value
@@ -31,6 +31,7 @@ typedef struct {
     AudioUnit rioUnit;
     float gainSliderValue;
     bool gainOnOff;
+    int whichEffect;
 } EffectState;
 
 //Changed slider value

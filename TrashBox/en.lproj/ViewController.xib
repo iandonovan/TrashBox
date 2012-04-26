@@ -41,7 +41,7 @@
 					<object class="IBUILabel" id="108849385">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{206, 150}, {154, 60}}</string>
+						<string key="NSFrame">{{162, 150}, {154, 60}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="323799874"/>
@@ -51,18 +51,18 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Gain:</string>
-						<object class="NSColor" key="IBUITextColor" id="446222943">
+						<object class="NSColor" key="IBUITextColor" id="1068993238">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="888090002">
 							<int key="type">1</int>
 							<double key="pointSize">60</double>
 						</object>
-						<object class="NSFont" key="IBUIFont">
+						<object class="NSFont" key="IBUIFont" id="921287156">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">60</double>
 							<int key="NSfFlags">16</int>
@@ -74,7 +74,7 @@
 						<string key="NSFrame">{{372, 169}, {224, 23}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="906225698"/>
+						<reference key="NSNextKeyView" ref="15931400"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -107,7 +107,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<bool key="IBUIOn">YES</bool>
 					</object>
-					<object class="IBUILabel" id="626883424">
+					<object class="IBUILabel" id="250730815">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{497, 39}, {140, 70}}</string>
@@ -120,7 +120,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Master:</string>
-						<reference key="IBUITextColor" ref="446222943"/>
+						<reference key="IBUITextColor" ref="1068993238"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
@@ -134,10 +134,10 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUISegmentedControl" id="906225698">
+					<object class="IBUISegmentedControl" id="356398636">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{281, 286}, {207, 44}}</string>
+						<string key="NSFrame">{{381, 278}, {207, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="454473754"/>
@@ -166,11 +166,31 @@
 							<reference ref="4"/>
 						</array>
 					</object>
+					<object class="IBUILabel" id="15931400">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{153, 265}, {173, 70}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="356398636"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText">Effect:</string>
+						<reference key="IBUITextColor" ref="1068993238"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">10</float>
+						<reference key="IBUIFontDescription" ref="888090002"/>
+						<reference key="IBUIFont" ref="921287156"/>
+					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="626883424"/>
+				<reference key="NSNextKeyView" ref="250730815"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC4yMjQ0ODk3OTU5IDAuMjI0NDg5Nzk1OSAwLjIyNDQ4OTc5NTkAA</bytes>
@@ -209,11 +229,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">atanOrDraw</string>
+						<string key="label">whichEffect</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="906225698"/>
+						<reference key="destination" ref="356398636"/>
 					</object>
-					<int key="connectionID">26</int>
+					<int key="connectionID">27</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -235,12 +255,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">atanOrDrawHit:</string>
-						<reference key="source" ref="906225698"/>
+						<string key="label">whichEffectHit:</string>
+						<reference key="source" ref="356398636"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">13</int>
 					</object>
-					<int key="connectionID">25</int>
+					<int key="connectionID">28</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -268,10 +288,11 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="454473754"/>
 							<reference ref="578507046"/>
-							<reference ref="626883424"/>
+							<reference ref="250730815"/>
 							<reference ref="323799874"/>
 							<reference ref="108849385"/>
-							<reference ref="906225698"/>
+							<reference ref="356398636"/>
+							<reference ref="15931400"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -297,12 +318,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="626883424"/>
+						<reference key="object" ref="250730815"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="906225698"/>
+						<reference key="object" ref="356398636"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">30</int>
+						<reference key="object" ref="15931400"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</array>
@@ -318,6 +344,8 @@
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<integer value="0" key="24.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -325,7 +353,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -341,15 +369,11 @@
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="atanOrDrawHit:">id</string>
 						<string key="gainSwitchHit:">id</string>
 						<string key="sliderChanged:">id</string>
+						<string key="whichEffectHit:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="atanOrDrawHit:">
-							<string key="name">atanOrDrawHit:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="gainSwitchHit:">
 							<string key="name">gainSwitchHit:</string>
 							<string key="candidateClassName">id</string>
@@ -358,17 +382,17 @@
 							<string key="name">sliderChanged:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="whichEffectHit:">
+							<string key="name">whichEffectHit:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="atanOrDraw">UISegmentedControl</string>
 						<string key="gainOnOff">UISwitch</string>
 						<string key="gainSlider">UISlider</string>
+						<string key="whichEffect">UISegmentedControl</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="atanOrDraw">
-							<string key="name">atanOrDraw</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="gainOnOff">
 							<string key="name">gainOnOff</string>
 							<string key="candidateClassName">UISwitch</string>
@@ -376,6 +400,10 @@
 						<object class="IBToOneOutletInfo" key="gainSlider">
 							<string key="name">gainSlider</string>
 							<string key="candidateClassName">UISlider</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="whichEffect">
+							<string key="name">whichEffect</string>
+							<string key="candidateClassName">UISegmentedControl</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -387,10 +415,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1280" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<string key="IBCocoaTouchPluginVersion">933</string>

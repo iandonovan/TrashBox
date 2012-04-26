@@ -82,6 +82,7 @@ EffectState effectState;
         effectState.rioUnit = remoteIOUnit;    
         effectState.gainSliderValue = .5;  //initial value
         effectState.gainOnOff = YES;       //initial value
+        effectState.whichEffect = 0;       //initially have "grit" on
         
         //Set up the callback struct
         AURenderCallbackStruct callbackStruct;
@@ -186,18 +187,20 @@ OSStatus MyAURenderCallback (
             
             fBuffer[i] = bufData[i];
             
-
-            
-            
-            
             //This is where the gain happens for each sample
-            if (effectState->gainOnOff)
+            if (effectState->gainOnOff && effectState->whichEffect==0)
             {
                 fBuffer[i] = atanf(.015*fBuffer[i]);
                 bufData[i] = fBuffer[i]*9000;
 
             }
-
+            
+            /* So the other one would go like
+             if (effectState->gainOnOff && effectState->whichEffect==1)
+             {
+                do things with the drawing
+             }
+            */
             
             //NSLog(@"%f",fBuffer[i]);
                         
@@ -227,8 +230,7 @@ OSStatus MyAURenderCallback (
 
 -(void)setWhichEffect:(int)effectChoice
 {
-    self.whichEffect = effectChoice;
-    
+    effectState.whichEffect = effectChoice;
 }
 
 //DAN CODE STARTS HERE
