@@ -10,7 +10,7 @@
 #import "AudioController.h"
 
 @implementation ViewController
-@synthesize gainSlider, gainOnOff;
+@synthesize gainSlider, gainOnOff, whichEffect;
 
 //Change the Audio Controller's gain value to be that of the slider
 -(IBAction)sliderChanged:(id)sender
@@ -21,6 +21,12 @@
 -(IBAction)gainSwitchHit:(id)sender
 {
     [daController setGainOnOff:[sender isOn]];
+}
+
+-(IBAction)whichEffectHit:(id)sender
+{
+    int effectChoice = [sender selectedSegmentIndex];
+    [daController setWhichEffect:effectChoice];
 }
 
 - (void)didReceiveMemoryWarning

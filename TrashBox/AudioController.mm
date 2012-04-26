@@ -10,7 +10,7 @@
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
-@synthesize onOrOff;
+@synthesize onOrOff, whichEffect;
 
 AudioUnit remoteIOUnit;
 EffectState effectState; 
@@ -81,6 +81,7 @@ EffectState effectState;
         //New Changes by Mike 4/24!!!!!!
         effectState.rioUnit = remoteIOUnit;    
         effectState.gainSliderValue = .5;  //initial value
+        effectState.gainOnOff = YES;       //initial value
         
         //Set up the callback struct
         AURenderCallbackStruct callbackStruct;
@@ -151,8 +152,6 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
     return connection;
 }
 
-
-
 //New functions
 OSStatus MyAURenderCallback (
                              void * inRefCon,
@@ -205,6 +204,12 @@ OSStatus MyAURenderCallback (
 {
     self.OnOrOff = val;
     effectState.gainOnOff = val;
+}
+
+-(void)setWhichEffect:(int)effectChoice
+{
+    self.whichEffect = effectChoice;
+    
 }
 
 //DAN CODE STARTS HERE

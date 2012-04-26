@@ -16,14 +16,12 @@
 @property bool isInit;
 @property bool inputDeviceFound;
 @property bool onOrOff;
+@property int whichEffect;
 
--(id)init;
-//Set the gain value
--(void)setGainValue:(float)val;
--(void)setGainOnOff:(bool)val;
-
-//-(bool)setupAudioSession;
-
+-(id)init; //initialize
+-(void)setGainValue:(float)val; //Set the gain value
+-(void)setGainOnOff:(bool)val; //set effects on or off
+-(void)setWhichEffect:(int)whichEffect; //which effect to use for filter
 
 AudioStreamBasicDescription makeASBD(Float64 sampleRate);
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);

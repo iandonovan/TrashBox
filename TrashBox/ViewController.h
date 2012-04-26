@@ -14,17 +14,20 @@
 //@class AudioController;
 
 @interface ViewController : UIViewController {
-
-UISlider *gainSlider;
-UISwitch *gainOnOff;
-AudioController *daController;
-
+    
+    UISlider *gainSlider;
+    UISwitch *gainOnOff;
+    UISegmentedControl *whichEffect;    
+    AudioController *daController;
+    
 }
 
 @property (nonatomic, strong) IBOutlet UISlider *gainSlider;
 @property (nonatomic, strong) IBOutlet UISwitch *gainOnOff;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *whichEffect;
 
 -(IBAction)sliderChanged:(id)sender;
 -(IBAction)gainSwitchHit:(id)sender;
+-(IBAction)whichEffectHit:(id)sender;
 
 @end
