@@ -10,7 +10,7 @@
 #import "AudioController.h"
 
 @implementation ViewController
-@synthesize gainSlider, gainOnOff;
+@synthesize gainSlider, effectOnOff, smoothing1, smoothing2;
 @synthesize whichEffect;
 
 //Change the Audio Controller's gain value to be that of the slider
@@ -19,15 +19,30 @@
     [daController setGainValue:[gainSlider value]];
 }
 
--(IBAction)gainSwitchHit:(id)sender
+//Change the effect's on/off status to match that of the switch
+-(IBAction)effectOnOffSwitchHit:(id)sender
 {
-    [daController setGainOnOff:[sender isOn]];
+    [daController setEffectOnOff:[sender isOn]];
 }
 
+//Choose which effect to use on the samples
 -(IBAction)whichEffectHit:(id)sender
 {
+    //See which effect segment is chosen, then set it active
     int effectChoice = [sender selectedSegmentIndex];
     [daController setWhichEffect:effectChoice];
+}
+
+//Choose the first smoothing method
+-(IBAction)smoothingSwitch1Hit:(id)sender
+{
+    [graphView toggleSmooth1:[sender isOn]];
+}
+
+//Choose the second smoothing method
+-(IBAction)smoothingSwitch2Hit:(id)sender
+{
+    [graphView toggleSmooth2:[sender isOn]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,12 +58,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     daController = [[AudioController alloc] init];
+    graphView = [[Draw2D alloc] init];
     
 }
-
-//Set up the AudioStreamBasicDescription
-
 
 - (void)viewDidUnload
 {

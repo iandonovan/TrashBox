@@ -20,22 +20,21 @@
 
 -(id)init; //initialize
 -(void)setGainValue:(float)val; //Set the gain value
--(void)setGainOnOff:(bool)val; //set effects on or off
+-(void)setEffectOnOff:(bool)val; //set effects on or off
 -(void)setWhichEffect:(int)whichEffect; //which effect to use for filter
 
+//Make the ASBD in the AudioController
 AudioStreamBasicDescription makeASBD(Float64 sampleRate);
+//Set up the connection; deprecated now with the render callback
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
 
 //The effect struct for the callback function
 typedef struct {
     AudioUnit rioUnit;
     float gainSliderValue;
-    bool gainOnOff;
+    bool effectOnOff;
     int whichEffect;
 } EffectState;
-
-//Changed slider value
--(IBAction) handleGainSliderValueChanged:(EffectState)effectState;
 
 //The callback function to render audio
 OSStatus MyAURenderCallback (

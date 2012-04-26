@@ -14,4 +14,9 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
 
+- (void)toggleSmooth1:(bool)state;
+- (void)toggleSmooth2:(bool)state;
+
+- (float *)getLUTPointer:(id)sender;
+
 @end
