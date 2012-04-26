@@ -13,6 +13,8 @@
 		8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992E153F936300E0EB75 /* AVFoundation.framework */; };
 		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
 		8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.mm */; };
+		CD1A7EE41549DAB000294A88 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A7EE31549DAB000294A88 /* Icon-72.png */; };
+		CD1A7EE71549DC6600294A88 /* Icon-72B.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A7EE61549DC6600294A88 /* Icon-72B.png */; };
 		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
 		CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */; };
@@ -48,6 +50,8 @@
 		8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8AAF9940153F9AD900E0EB75 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
 		8AAF9941153F9AD900E0EB75 /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
+		CD1A7EE31549DAB000294A88 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		CD1A7EE61549DC6600294A88 /* Icon-72B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72B.png"; sourceTree = "<group>"; };
 		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3371E9153E64DD004CBCCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD3371EB153E64DD004CBCCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +152,8 @@
 				8A6E3AA91548D75E0029B431 /* Draw2D.h */,
 				8A6E3AAA1548D75E0029B431 /* Draw2D.m */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
+				CD1A7EE61549DC6600294A88 /* Icon-72B.png */,
+				CD1A7EE31549DAB000294A88 /* Icon-72.png */,
 				CD3371F0153E64DD004CBCCB /* Supporting Files */,
 			);
 			path = TrashBox;
@@ -256,6 +262,8 @@
 			files = (
 				CD3371F4153E64DD004CBCCB /* InfoPlist.strings in Resources */,
 				CD337200153E64DD004CBCCB /* ViewController.xib in Resources */,
+				CD1A7EE41549DAB000294A88 /* Icon-72.png in Resources */,
+				CD1A7EE71549DC6600294A88 /* Icon-72B.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
