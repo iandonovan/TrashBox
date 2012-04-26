@@ -175,6 +175,8 @@ OSStatus MyAURenderCallback (
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
     
         
+    float* fBuffer = new float[1024]; //BAD, HARD CODED
+    
     for (int bufCount=0; bufCount<ioData->mNumberBuffers; bufCount++) //for all buffers
     {
         AudioBuffer buf = ioData->mBuffers[bufCount]; //copy buffer
@@ -184,8 +186,19 @@ OSStatus MyAURenderCallback (
         
         for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
         { 
+            //STILL INTERLEAVED SAMPLES AT THIS POINT
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
+            
+            fBuffer[i] = bufData[i];
+            
+            fBuffer[i] = atanf(.015*fBuffer[i]);
+            
+            bufData[i] = fBuffer[i]*9000;
                         
+            
+            //NSLog(@"%f",fBuffer[i]);
+                        
+            
            // NSLog(@"%f",effectState->gainSliderValue); THIS WILL STOP AUDIO OUTPUT
             
             
