@@ -16,13 +16,15 @@
 @interface ViewController : UIViewController {
 
 UISlider *gainSlider;
-    AudioController *daController;
+UISwitch *gainOnOff;
+AudioController *daController;
 
 }
 
 @property (nonatomic, strong) IBOutlet UISlider *gainSlider;
+@property (nonatomic, strong) IBOutlet UISwitch *gainOnOff;
 
 -(IBAction)sliderChanged:(id)sender;
-
+-(IBAction)gainSwitchHit:(id)sender;
 
 @end

@@ -2,8 +2,8 @@
 //  Draw2D.h
 //  GraphDraw
 //
-//  Created by Dan Raisbeck on 4/21/12.
-//  Copyright (c) 2012 Mercury Computer Systems, Inc. All rights reserved.
+//  Created by Ian Donovan, Dan Raisbeck, and Michael Siegel
+//  Copyright (c) 2012 Possum Kingdom. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

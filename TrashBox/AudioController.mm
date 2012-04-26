@@ -10,7 +10,7 @@
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
-
+@synthesize onOrOff;
 
 AudioUnit remoteIOUnit;
 EffectState effectState; 
@@ -53,8 +53,6 @@ EffectState effectState;
         compDesc.componentFlagsMask = 0;
         
         //Find the unit we're going to use
-        
-        
         AudioComponent remoteIOComponent = AudioComponentFindNext(NULL, &compDesc);
         OSErr setupError = AudioComponentInstanceNew(remoteIOComponent, &remoteIOUnit);
         NSAssert(setupError == noErr, @"Couldn't get Remote IO unit instance");
@@ -81,12 +79,10 @@ EffectState effectState;
         NSAssert(setupError == noErr, @"Could not set ASBD for remote IO input scope -- bus 0");
         
         //New Changes by Mike 4/24!!!!!!
-        
-        
-
         effectState.rioUnit = remoteIOUnit;    
         effectState.gainSliderValue = .5;  //initial value
         
+        //Set up the callback struct
         AURenderCallbackStruct callbackStruct;
         callbackStruct.inputProc = MyAURenderCallback; //issues
         callbackStruct.inputProcRefCon = &effectState;
@@ -119,6 +115,8 @@ EffectState effectState;
     }
     
     isInit = YES;
+    inputDeviceFound = YES;
+    onOrOff = YES;
     return self;
 }
 
@@ -155,25 +153,24 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
 
 
 
-//New funcs
+//New functions
 OSStatus MyAURenderCallback (
                              void * inRefCon,
                              AudioUnitRenderActionFlags * ioActionFlags,
                              const AudioTimeStamp *  inTimeStamp,
                              UInt32                  inBusNumber,
                              UInt32                  inNumberFrames,
-                             AudioBufferList *       ioData) 
+                             AudioBufferList *       ioData
+                             ) 
 {
-    
-
-    EffectState * effectState = (EffectState*) inRefCon;
+    //Grab the effect state and the remote IO unit
+    EffectState* effectState = (EffectState*) inRefCon;
     AudioUnit rioUnit = effectState->rioUnit;
     
     OSStatus renderErr = noErr;     //call Render!!!!
     
     UInt32 bus1 = 1;
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
-    
         
     float* fBuffer = new float[1024]; //BAD, HARD CODED
     
@@ -183,9 +180,9 @@ OSStatus MyAURenderCallback (
 
         SInt16* bufData = (SInt16*)buf.mData;
         
-        
         for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
         { 
+<<<<<<< HEAD
             //STILL INTERLEAVED SAMPLES AT THIS POINT
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
             
@@ -194,13 +191,17 @@ OSStatus MyAURenderCallback (
             fBuffer[i] = atanf(.015*fBuffer[i]);
             
             bufData[i] = fBuffer[i]*9000;
+=======
+            //This is where the gain happens for each sample
+            if (effectState->gainOnOff)
+                bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
+>>>>>>> 3d79741bfd984eb3a0d69c372d48b6573693619c
                         
             
             //NSLog(@"%f",fBuffer[i]);
                         
             
            // NSLog(@"%f",effectState->gainSliderValue); THIS WILL STOP AUDIO OUTPUT
-            
             
             //Messing with random (white noise)
                     //NSLog(@"%f", ((float)rand()/pow(2, 32)*2-1));
@@ -211,15 +212,17 @@ OSStatus MyAURenderCallback (
       
 }
 
-// objc method to change audioEffect->gainSliderValue, call this method from ViewController
+//Obj.C method to change audioEffect->gainSliderValue
+//Call this method from ViewController
 -(void)setGainValue:(float)val {
     effectState.gainSliderValue = val;
 }
 
-
-
-
-
+-(void)setGainOnOff:(bool)val
+{
+    self.OnOrOff = val;
+    effectState.gainOnOff = val;
+}
 
 //DAN CODE STARTS HERE
 //AudioSessions are used for interrupts, so we'll add them at the end
