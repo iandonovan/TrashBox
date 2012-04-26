@@ -93,7 +93,7 @@
 					<object class="IBUISwitch" id="578507046">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{630, 60}, {94, 27}}</string>
+						<string key="NSFrame">{{638, 60}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="108849385"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -196,6 +196,7 @@
 						<reference key="IBUIFontDescription" ref="888090002"/>
 						<reference key="IBUIFont" ref="921287156"/>
 					</object>
+<<<<<<< HEAD
 					<object class="IBUISwitch" id="352877114">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
@@ -212,11 +213,21 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{45, 828}, {229, 70}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+=======
+					<object class="IBUILabel" id="615695826">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{36, 22}, {280, 103}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="250730815"/>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+<<<<<<< HEAD
 						<string key="IBUIText">Smoothing2:</string>
 						<reference key="IBUITextColor" ref="1068993238"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -235,11 +246,35 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+=======
+						<string key="IBUIText">TrashBox</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAxIDAAA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">10</float>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<double key="pointSize">60</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">60</double>
+							<int key="NSfFlags">16</int>
+						</object>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
+<<<<<<< HEAD
 				<reference key="NSNextKeyView" ref="250730815"/>
+=======
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="615695826"/>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC4yMjQ0ODk3OTU5IDAuMjI0NDg5Nzk1OSAwLjIyNDQ4OTc5NTkAA</bytes>
@@ -354,16 +389,20 @@
 						<reference key="object" ref="766721923"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="454473754"/>
-							<reference ref="578507046"/>
 							<reference ref="250730815"/>
 							<reference ref="323799874"/>
 							<reference ref="108849385"/>
 							<reference ref="356398636"/>
 							<reference ref="15931400"/>
+<<<<<<< HEAD
 							<reference ref="459598515"/>
 							<reference ref="352877114"/>
 							<reference ref="925813778"/>
 							<reference ref="187549990"/>
+=======
+							<reference ref="615695826"/>
+							<reference ref="578507046"/>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -404,6 +443,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">31</int>
+<<<<<<< HEAD
 						<reference key="object" ref="352877114"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -420,6 +460,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">34</int>
 						<reference key="object" ref="187549990"/>
+=======
+						<reference key="object" ref="615695826"/>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</array>
@@ -438,9 +481,12 @@
 				<integer value="0" key="24.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+<<<<<<< HEAD
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="33.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+=======
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -448,7 +494,69 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
+<<<<<<< HEAD
 			<int key="maxID">36</int>
+=======
+			<int key="maxID">31</int>
+		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">Draw2D</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/Draw2D.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="gainSwitchHit:">id</string>
+						<string key="sliderChanged:">id</string>
+						<string key="whichEffectHit:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="gainSwitchHit:">
+							<string key="name">gainSwitchHit:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="sliderChanged:">
+							<string key="name">sliderChanged:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="whichEffectHit:">
+							<string key="name">whichEffectHit:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="gainOnOff">UISwitch</string>
+						<string key="gainSlider">UISlider</string>
+						<string key="whichEffect">UISegmentedControl</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="gainOnOff">
+							<string key="name">gainOnOff</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gainSlider">
+							<string key="name">gainSlider</string>
+							<string key="candidateClassName">UISlider</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="whichEffect">
+							<string key="name">whichEffect</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ViewController.h</string>
+					</object>
+				</object>
+			</array>
+>>>>>>> 026ccfa9239e6db1580f26769df2a110e5fad499
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
