@@ -10,7 +10,7 @@
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
-
+@synthesize onOrOff;
 
 AudioUnit remoteIOUnit;
 EffectState effectState; 
@@ -116,6 +116,7 @@ EffectState effectState;
     
     isInit = YES;
     inputDeviceFound = YES;
+    onOrOff = YES;
     return self;
 }
 
@@ -180,7 +181,8 @@ OSStatus MyAURenderCallback (
         for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
         { 
             //This is where the gain happens for each sample
-            bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
+            if (effectState->gainOnOff)
+                bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
                         
            // NSLog(@"%f",effectState->gainSliderValue); THIS WILL STOP AUDIO OUTPUT
             
@@ -197,6 +199,12 @@ OSStatus MyAURenderCallback (
 //Call this method from ViewController
 -(void)setGainValue:(float)val {
     effectState.gainSliderValue = val;
+}
+
+-(void)setGainOnOff:(bool)val
+{
+    self.OnOrOff = val;
+    effectState.gainOnOff = val;
 }
 
 //DAN CODE STARTS HERE

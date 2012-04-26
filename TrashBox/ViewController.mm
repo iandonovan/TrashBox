@@ -20,8 +20,7 @@
 
 -(IBAction)gainSwitchHit:(id)sender
 {
-   // bool onOrOff = [sender ];
-    
+    [daController setGainOnOff:[sender isOn]];
 }
 
 - (void)didReceiveMemoryWarning

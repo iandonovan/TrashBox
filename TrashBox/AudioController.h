@@ -15,24 +15,28 @@
 
 @property bool isInit;
 @property bool inputDeviceFound;
-
+@property bool onOrOff;
 
 -(id)init;
+//Set the gain value
+-(void)setGainValue:(float)val;
+-(void)setGainOnOff:(bool)val;
+
 //-(bool)setupAudioSession;
+
 
 AudioStreamBasicDescription makeASBD(Float64 sampleRate);
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
-
 
 //The effect struct for the callback function
 typedef struct {
     AudioUnit rioUnit;
     float gainSliderValue;
+    bool gainOnOff;
 } EffectState;
 
 //Changed slider value
 -(IBAction) handleGainSliderValueChanged:(EffectState)effectState;
-
 
 //The callback function to render audio
 OSStatus MyAURenderCallback (
@@ -54,8 +58,7 @@ typedef OSStatus (*AURenderCallback) (
                                       AudioBufferList             *ioData
                                       );
 
-//Set the gain value
--(void)setGainValue:(float)val;
+
 //-(id) setFilterChain;
 //-(id) getLineInfo;
 
