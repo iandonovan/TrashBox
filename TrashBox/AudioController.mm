@@ -163,6 +163,9 @@ OSStatus MyAURenderCallback (
                              AudioBufferList *       ioData
                              ) 
 {
+    
+    float bias = .015; //scaling factor inside inverse tan function
+    
     //Grab the effect state and the remote IO unit
     EffectState* effectState = (EffectState*) inRefCon;
     AudioUnit rioUnit = effectState->rioUnit;
@@ -190,7 +193,7 @@ OSStatus MyAURenderCallback (
             //This is where the gain happens for each sample
             if (effectState->gainOnOff && effectState->whichEffect==0)
             {
-                fBuffer[i] = atanf(.015*fBuffer[i]);
+                fBuffer[i] = atanf(bias*fBuffer[i]);
                 bufData[i] = fBuffer[i]*9000;
 
             }
