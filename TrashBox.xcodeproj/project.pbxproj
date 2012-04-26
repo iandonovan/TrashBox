@@ -103,7 +103,6 @@
 		CD3371DA153E64DD004CBCCB = {
 			isa = PBXGroup;
 			children = (
-				8A6E3AAD1548D7F90029B431 /* QuartzCore.framework */,
 				CD3371EF153E64DD004CBCCB /* TrashBox */,
 				CD33720D153E64DD004CBCCB /* TrashBoxTests */,
 				CD3371E8153E64DD004CBCCB /* Frameworks */,
@@ -123,6 +122,7 @@
 		CD3371E8153E64DD004CBCCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E3AAD1548D7F90029B431 /* QuartzCore.framework */,
 				CDECC62F153FBE3E005640A7 /* AudioUnit.framework */,
 				CDECC62D153FBE35005640A7 /* CoreAudio.framework */,
 				8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */,
