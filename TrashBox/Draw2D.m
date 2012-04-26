@@ -8,6 +8,7 @@
 
 #import "Draw2D.h"
 
+//Buncha constants
 #define datapoints 24//16
 #define granularity 100//2520
 #define granularity2 15
@@ -19,6 +20,7 @@
 
 @implementation Draw2D
 
+//Global variables? FUCK THE POLICE.
 float lut[bits16];
 CGPoint graph[datapoints];
 CGPoint points[datapoints*granularity];
@@ -27,10 +29,11 @@ CGFloat width;
 CGFloat height;
 int divisor;
 bool setup;
-bool smoothing;
-bool smoothing2;
+bool smoothing;     //pre-splining smoothing
+bool smoothing2;    //post-splining smoothing
 CGContextRef context;
 
+//Toggle dem smooves
 - (void)toggleSmooth1:(bool)state
 {
     smoothing = state;
@@ -40,6 +43,7 @@ CGContextRef context;
     smoothing2 = state;
 }
 
+//Gonna have to look in to this; empty if statement
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -60,10 +64,13 @@ CGContextRef context;
  */
 - (void)drawRect:(CGRect)rect
 {
+    //Set up some of those variables for drawing
     width = self.frame.size.width;
     height = self.frame.size.height;
     divisor = width / datapoints;
     context = UIGraphicsGetCurrentContext();
+
+    //Nice naming convention
     int count = 0;
     int count2 = 0;
     
@@ -123,13 +130,11 @@ CGContextRef context;
         }
     }
     
-    
-    
-    //This smoothes out the graph my interpolating curves between points
+    //This smooths out the graph my interpolating curves between points
     for(int i=0; i<datapoints-2; i++) {
         CGPoint p0, p1, p2, p3;
-        //If first index, use mirrored point to help calculate smoothed line
         
+        //If first index, use mirrored point to help calculate smoothed line
         if(smoothing == true) {
             if(i==0) {
                 p0.x = -1 * averaged[0].x;
@@ -165,7 +170,7 @@ CGContextRef context;
             pi.y = 0.5 * (2*p1.y+(p2.y-p0.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*tt + (3*p1.y-p0.y-3*p2.y+p3.y)*ttt);
             points[count].x = pi.x;
             
-            //must account for boundary conditionsß
+            //must account for boundary conditions
             if(pi.y < 0.0f) {
                 points[count].y = 0.0f;
             }
@@ -263,6 +268,7 @@ CGContextRef context;
     //NSLog(@"Count2 = %d", count2);
 }
 
+//Start dat touch
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self]; 
@@ -273,6 +279,7 @@ CGContextRef context;
     [self setNeedsDisplay];
 }
 
+//Move dat touch
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
@@ -283,6 +290,7 @@ CGContextRef context;
     [self setNeedsDisplay];
 }
 
+//End dat touch
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];

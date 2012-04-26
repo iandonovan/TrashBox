@@ -12,6 +12,7 @@
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
 
+//Declare our remote unit and effect right off
 AudioUnit remoteIOUnit;
 EffectState effectState; 
 
@@ -81,7 +82,7 @@ EffectState effectState;
         //New Changes by Mike 4/24!!!!!!
         effectState.rioUnit = remoteIOUnit;    
         effectState.gainSliderValue = .5;  //initial value
-        effectState.gainOnOff = YES;       //initial value
+        effectState.effectOnOff = YES;       //initial value
         effectState.whichEffect = 0;       //initially have "grit" on
         
         //Set up the callback struct
@@ -108,7 +109,7 @@ EffectState effectState;
 //        NSAssert(setupError == noErr, @"Could not establish audio unit connection property");
 //        
         
-        //GOGOGOGOGO
+        //GOGOGOGOGOGOGO
         setupError = AudioUnitInitialize(remoteIOUnit);
         NSAssert(setupError == noErr, @"Could not initialize the remote IO unit");
         
@@ -154,6 +155,7 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
 }
 
 //New functions
+//Callback, dayum
 OSStatus MyAURenderCallback (
                              void * inRefCon,
                              AudioUnitRenderActionFlags * ioActionFlags,
@@ -183,13 +185,16 @@ OSStatus MyAURenderCallback (
         for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
         { 
             //STILL INTERLEAVED SAMPLES AT THIS POINT
+            //This is where the gain happens for each sample
+            //We always have the gain, even if other effects are off -- act as a volume knob
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
             
             fBuffer[i] = bufData[i];
             
-            //This is where the gain happens for each sample
-            if (effectState->gainOnOff && effectState->whichEffect==0)
+            //If we have effects on AND it chooses the "grit" effect
+            if (effectState->effectOnOff && effectState->whichEffect==0)
             {
+                //Simple nonlinear transformation -- sounds RAWK
                 fBuffer[i] = atanf(.015*fBuffer[i]);
                 bufData[i] = fBuffer[i]*9000;
 
@@ -222,16 +227,19 @@ OSStatus MyAURenderCallback (
     effectState.gainSliderValue = val;
 }
 
--(void)setGainOnOff:(bool)val
+//Set the effect's on/off state from the switch
+-(void)setEffectOnOff:(bool)val
 {
     self.OnOrOff = val;
-    effectState.gainOnOff = val;
+    effectState.effectOnOff = val;
 }
-
+//Set which effect to apply from the segmented controller
 -(void)setWhichEffect:(int)effectChoice
 {
     effectState.whichEffect = effectChoice;
 }
+
+
 
 //DAN CODE STARTS HERE
 //AudioSessions are used for interrupts, so we'll add them at the end
