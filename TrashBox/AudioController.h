@@ -24,7 +24,6 @@ AudioStreamBasicDescription makeASBD(Float64 sampleRate);
 AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input, AudioUnitElement output);
 
 
-
 typedef struct {
     AudioUnit rioUnit;
     float gainSliderValue;
@@ -32,7 +31,6 @@ typedef struct {
 
 
 -(IBAction) handleGainSliderValueChanged:(EffectState)effectState; //Change slider value
-
 
 OSStatus MyAURenderCallback (
                              void * inRefCon,

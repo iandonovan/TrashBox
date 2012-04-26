@@ -12,10 +12,12 @@
 @implementation ViewController
 @synthesize gainSlider;
 
+//Set the gain value of the audio controller to that of the gain slider
 -(IBAction)sliderChanged:(id)sender
 {
     [daController setGainValue:[gainSlider value]];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -34,7 +36,6 @@
 }
 
 //Set up the AudioStreamBasicDescription
-
 
 - (void)viewDidUnload
 {

@@ -11,7 +11,6 @@
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 
-
 AudioUnit remoteIOUnit;
 EffectState effectState; 
 
@@ -53,8 +52,6 @@ EffectState effectState;
         compDesc.componentFlagsMask = 0;
         
         //Find the unit we're going to use
-        
-        
         AudioComponent remoteIOComponent = AudioComponentFindNext(NULL, &compDesc);
         OSErr setupError = AudioComponentInstanceNew(remoteIOComponent, &remoteIOUnit);
         NSAssert(setupError == noErr, @"Couldn't get Remote IO unit instance");
@@ -81,9 +78,6 @@ EffectState effectState;
         NSAssert(setupError == noErr, @"Could not set ASBD for remote IO input scope -- bus 0");
         
         //New Changes by Mike 4/24!!!!!!
-        
-        
-
         effectState.rioUnit = remoteIOUnit;    
         effectState.gainSliderValue = .5;  //initial value
         
@@ -119,6 +113,7 @@ EffectState effectState;
     }
     
     isInit = YES;
+    inputDeviceFound = YES;
     return self;
 }
 
@@ -155,18 +150,18 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
 
 
 
-//New funcs
+//New functions
+//The AudioUnit Render Callback function
 OSStatus MyAURenderCallback (
                              void * inRefCon,
                              AudioUnitRenderActionFlags * ioActionFlags,
                              const AudioTimeStamp *  inTimeStamp,
                              UInt32                  inBusNumber,
                              UInt32                  inNumberFrames,
-                             AudioBufferList *       ioData) 
+                             AudioBufferList *       ioData
+                             ) 
 {
-    
-
-    EffectState * effectState = (EffectState*) inRefCon;
+    EffectState* effectState = (EffectState*) inRefCon;
     AudioUnit rioUnit = effectState->rioUnit;
     
     OSStatus renderErr = noErr;     //call Render!!!!
@@ -195,17 +190,13 @@ OSStatus MyAURenderCallback (
         }
                 
     }
-      
+
 }
 
-// objc method to change audioEffect->gainSliderValue, call this method from ViewController
+//Obj.C method to change audioEffect->gainSliderValue, call this method from ViewController
 -(void)setGainValue:(float)val {
     effectState.gainSliderValue = val;
 }
-
-
-
-
 
 
 //DAN CODE STARTS HERE
