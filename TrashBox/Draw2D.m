@@ -263,7 +263,6 @@ CGContextRef context;
     //NSLog(@"Count2 = %d", count2);
 }
 
-//Touch starts; mark the location of the touch and begin drawing
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self]; 
@@ -274,7 +273,6 @@ CGContextRef context;
     [self setNeedsDisplay];
 }
 
-//Touch is moving -- most of the drawing happens here
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
@@ -285,7 +283,6 @@ CGContextRef context;
     [self setNeedsDisplay];
 }
 
-//Touch over; wrap it up
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
@@ -296,7 +293,6 @@ CGContextRef context;
     [self setNeedsDisplay];
 }
 
-//Somehow cancel the touch; what does that gensture entail?
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     
 }
