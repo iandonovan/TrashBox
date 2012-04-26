@@ -2,8 +2,8 @@
 //  Draw2D.m
 //  GraphDraw
 //
-//  Created by Dan Raisbeck on 4/21/12.
-//  Copyright (c) 2012 Mercury Computer Systems, Inc. All rights reserved.
+//  Created by Ian Donovan, Dan Raisbeck, and Michael Siegel
+//  Copyright (c) 2012 Possum Kingdom. All rights reserved.
 //
 
 #import "Draw2D.h"
@@ -14,7 +14,6 @@
 #define averagepoints 8
 
 @implementation Draw2D
-
 
 //extern bool moveaverage;
 
@@ -41,6 +40,7 @@ CGContextRef context;
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.
  */
+
 - (void)drawRect:(CGRect)rect
 {
     width = self.frame.size.width;
@@ -73,6 +73,7 @@ CGContextRef context;
         pointfloat[0] = height;
         setup = true;
     }
+    
     CGPoint pi;
     pi.x = 0.0f;
     pi.y = height;
@@ -82,9 +83,7 @@ CGContextRef context;
     points[count] = pi;
     pointfloat[count] = pi.y;
     count++;
-    
-    
-    
+
     for(int i=1; i<datapoints-2; i++)
     {
         CGPoint p0, p1, p2, p3;
