@@ -16,7 +16,7 @@
 @interface ViewController : UIViewController {
 
 UISlider *gainSlider;
-AudioController *daController;
+    AudioController *daController;
 
 }
 
