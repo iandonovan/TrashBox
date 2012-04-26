@@ -182,21 +182,23 @@ OSStatus MyAURenderCallback (
         
         for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
         { 
-<<<<<<< HEAD
             //STILL INTERLEAVED SAMPLES AT THIS POINT
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
             
             fBuffer[i] = bufData[i];
             
-            fBuffer[i] = atanf(.015*fBuffer[i]);
+
             
-            bufData[i] = fBuffer[i]*9000;
-=======
+            
+            
             //This is where the gain happens for each sample
             if (effectState->gainOnOff)
-                bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
->>>>>>> 3d79741bfd984eb3a0d69c372d48b6573693619c
-                        
+            {
+                fBuffer[i] = atanf(.015*fBuffer[i]);
+                bufData[i] = fBuffer[i]*9000;
+
+            }
+
             
             //NSLog(@"%f",fBuffer[i]);
                         
