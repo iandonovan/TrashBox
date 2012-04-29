@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992B153F935D00E0EB75 /* Accelerate.framework */; };
+		8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992E153F936300E0EB75 /* AVFoundation.framework */; };
+		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
+		8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9932153F937000E0EB75 /* AudioUnit.framework */; };
+		8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9934153F937500E0EB75 /* CoreAudio.framework */; };
+		8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.m */; };
+		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
+		CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
+		CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */; };
+		CD3371F4153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD3371F2153E64DD004CBCCB /* InfoPlist.strings */; };
+		CD3371F6153E64DD004CBCCB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3371F5153E64DD004CBCCB /* main.m */; };
+		CD3371FA153E64DD004CBCCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3371F9153E64DD004CBCCB /* AppDelegate.m */; };
+		CD3371FD153E64DD004CBCCB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3371FC153E64DD004CBCCB /* ViewController.m */; };
+		CD337200153E64DD004CBCCB /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3371FE153E64DD004CBCCB /* ViewController.xib */; };
+		CD337208153E64DD004CBCCB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD337207153E64DD004CBCCB /* SenTestingKit.framework */; };
+		CD337209153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
+		CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
+		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
+		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
+		CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6289E4153F9352006A314C /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD33720B153E64DD004CBCCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD3371DC153E64DD004CBCCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD3371E4153E64DD004CBCCB;
+			remoteInfo = TrashBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8AAF992B153F935D00E0EB75 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8AAF992E153F936300E0EB75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8AAF9932153F937000E0EB75 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		8AAF9934153F937500E0EB75 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		8AAF9940153F9AD900E0EB75 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		8AAF9941153F9AD900E0EB75 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3371E9153E64DD004CBCCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD3371EB153E64DD004CBCCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CD3371F1153E64DD004CBCCB /* TrashBox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrashBox-Info.plist"; sourceTree = "<group>"; };
+		CD3371F3153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD3371F5153E64DD004CBCCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD3371F7153E64DD004CBCCB /* TrashBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrashBox-Prefix.pch"; sourceTree = "<group>"; };
+		CD3371F8153E64DD004CBCCB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD3371F9153E64DD004CBCCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD3371FB153E64DD004CBCCB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD3371FC153E64DD004CBCCB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD3371FF153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		CD337206153E64DD004CBCCB /* TrashBoxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrashBoxTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD337207153E64DD004CBCCB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CD33720F153E64DD004CBCCB /* TrashBoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrashBoxTests-Info.plist"; sourceTree = "<group>"; };
+		CD337211153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD337213153E64DD004CBCCB /* TrashBoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashBoxTests.h; sourceTree = "<group>"; };
+		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
+		CD6289E4153F9352006A314C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD3371E2153E64DD004CBCCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+<<<<<<< HEAD
+				CD6289E5153F9352006A314C /* AudioToolbox.framework in Frameworks */,
+=======
+				8AAF9935153F937500E0EB75 /* CoreAudio.framework in Frameworks */,
+				8AAF9933153F937000E0EB75 /* AudioUnit.framework in Frameworks */,
+				8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */,
+				8AAF992F153F936300E0EB75 /* AVFoundation.framework in Frameworks */,
+				8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */,
+>>>>>>> f7a1ae5c2bbca4cd56a22beea88316174bd39082
+				CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */,
+				CD3371EC153E64DD004CBCCB /* Foundation.framework in Frameworks */,
+				CD3371EE153E64DD004CBCCB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD337202153E64DD004CBCCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD337208153E64DD004CBCCB /* SenTestingKit.framework in Frameworks */,
+				CD337209153E64DD004CBCCB /* UIKit.framework in Frameworks */,
+				CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD3371DA153E64DD004CBCCB = {
+			isa = PBXGroup;
+			children = (
+				CD3371EF153E64DD004CBCCB /* TrashBox */,
+				CD33720D153E64DD004CBCCB /* TrashBoxTests */,
+				CD3371E8153E64DD004CBCCB /* Frameworks */,
+				CD3371E6153E64DD004CBCCB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD3371E6153E64DD004CBCCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD3371E5153E64DD004CBCCB /* TrashBox.app */,
+				CD337206153E64DD004CBCCB /* TrashBoxTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD3371E8153E64DD004CBCCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+<<<<<<< HEAD
+				CD6289E4153F9352006A314C /* AudioToolbox.framework */,
+=======
+				8AAF9934153F937500E0EB75 /* CoreAudio.framework */,
+				8AAF9932153F937000E0EB75 /* AudioUnit.framework */,
+				8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */,
+				8AAF992E153F936300E0EB75 /* AVFoundation.framework */,
+				8AAF992B153F935D00E0EB75 /* Accelerate.framework */,
+>>>>>>> f7a1ae5c2bbca4cd56a22beea88316174bd39082
+				CD3371E9153E64DD004CBCCB /* UIKit.framework */,
+				CD3371EB153E64DD004CBCCB /* Foundation.framework */,
+				CD3371ED153E64DD004CBCCB /* CoreGraphics.framework */,
+				CD337207153E64DD004CBCCB /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD3371EF153E64DD004CBCCB /* TrashBox */ = {
+			isa = PBXGroup;
+			children = (
+				CD3371F8153E64DD004CBCCB /* AppDelegate.h */,
+				CD3371F9153E64DD004CBCCB /* AppDelegate.m */,
+				CD3371FB153E64DD004CBCCB /* ViewController.h */,
+				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
+				8AAF9941153F9AD900E0EB75 /* AudioController.m */,
+				CD3371FC153E64DD004CBCCB /* ViewController.m */,
+				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
+				CD3371F0153E64DD004CBCCB /* Supporting Files */,
+			);
+			path = TrashBox;
+			sourceTree = "<group>";
+		};
+		CD3371F0153E64DD004CBCCB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD3371F1153E64DD004CBCCB /* TrashBox-Info.plist */,
+				CD3371F2153E64DD004CBCCB /* InfoPlist.strings */,
+				CD3371F5153E64DD004CBCCB /* main.m */,
+				CD3371F7153E64DD004CBCCB /* TrashBox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD33720D153E64DD004CBCCB /* TrashBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD337213153E64DD004CBCCB /* TrashBoxTests.h */,
+				CD337214153E64DD004CBCCB /* TrashBoxTests.m */,
+				CD33720E153E64DD004CBCCB /* Supporting Files */,
+			);
+			path = TrashBoxTests;
+			sourceTree = "<group>";
+		};
+		CD33720E153E64DD004CBCCB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD33720F153E64DD004CBCCB /* TrashBoxTests-Info.plist */,
+				CD337210153E64DD004CBCCB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD3371E4153E64DD004CBCCB /* TrashBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD337218153E64DD004CBCCB /* Build configuration list for PBXNativeTarget "TrashBox" */;
+			buildPhases = (
+				CD3371E1153E64DD004CBCCB /* Sources */,
+				CD3371E2153E64DD004CBCCB /* Frameworks */,
+				CD3371E3153E64DD004CBCCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrashBox;
+			productName = TrashBox;
+			productReference = CD3371E5153E64DD004CBCCB /* TrashBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD337205153E64DD004CBCCB /* TrashBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD33721B153E64DD004CBCCB /* Build configuration list for PBXNativeTarget "TrashBoxTests" */;
+			buildPhases = (
+				CD337201153E64DD004CBCCB /* Sources */,
+				CD337202153E64DD004CBCCB /* Frameworks */,
+				CD337203153E64DD004CBCCB /* Resources */,
+				CD337204153E64DD004CBCCB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD33720C153E64DD004CBCCB /* PBXTargetDependency */,
+			);
+			name = TrashBoxTests;
+			productName = TrashBoxTests;
+			productReference = CD337206153E64DD004CBCCB /* TrashBoxTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD3371DC153E64DD004CBCCB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Tufts University";
+			};
+			buildConfigurationList = CD3371DF153E64DD004CBCCB /* Build configuration list for PBXProject "TrashBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD3371DA153E64DD004CBCCB;
+			productRefGroup = CD3371E6153E64DD004CBCCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD3371E4153E64DD004CBCCB /* TrashBox */,
+				CD337205153E64DD004CBCCB /* TrashBoxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD3371E3153E64DD004CBCCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3371F4153E64DD004CBCCB /* InfoPlist.strings in Resources */,
+				CD337200153E64DD004CBCCB /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD337203153E64DD004CBCCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD337204153E64DD004CBCCB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD3371E1153E64DD004CBCCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD3371F6153E64DD004CBCCB /* main.m in Sources */,
+				CD3371FA153E64DD004CBCCB /* AppDelegate.m in Sources */,
+				CD3371FD153E64DD004CBCCB /* ViewController.m in Sources */,
+				8AAF9942153F9AD900E0EB75 /* AudioController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD337201153E64DD004CBCCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD33720C153E64DD004CBCCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD3371E4153E64DD004CBCCB /* TrashBox */;
+			targetProxy = CD33720B153E64DD004CBCCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD3371F2153E64DD004CBCCB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD3371F3153E64DD004CBCCB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CD3371FE153E64DD004CBCCB /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD3371FF153E64DD004CBCCB /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+		CD337210153E64DD004CBCCB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD337211153E64DD004CBCCB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD337216153E64DD004CBCCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		CD337217153E64DD004CBCCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD337219153E64DD004CBCCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrashBox/TrashBox-Prefix.pch";
+				INFOPLIST_FILE = "TrashBox/TrashBox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD33721A153E64DD004CBCCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrashBox/TrashBox-Prefix.pch";
+				INFOPLIST_FILE = "TrashBox/TrashBox-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CD33721C153E64DD004CBCCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrashBox.app/TrashBox";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrashBox/TrashBox-Prefix.pch";
+				INFOPLIST_FILE = "TrashBoxTests/TrashBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CD33721D153E64DD004CBCCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrashBox.app/TrashBox";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrashBox/TrashBox-Prefix.pch";
+				INFOPLIST_FILE = "TrashBoxTests/TrashBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD3371DF153E64DD004CBCCB /* Build configuration list for PBXProject "TrashBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD337216153E64DD004CBCCB /* Debug */,
+				CD337217153E64DD004CBCCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD337218153E64DD004CBCCB /* Build configuration list for PBXNativeTarget "TrashBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD337219153E64DD004CBCCB /* Debug */,
+				CD33721A153E64DD004CBCCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD33721B153E64DD004CBCCB /* Build configuration list for PBXNativeTarget "TrashBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD33721C153E64DD004CBCCB /* Debug */,
+				CD33721D153E64DD004CBCCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD3371DC153E64DD004CBCCB /* Project object */;
+}

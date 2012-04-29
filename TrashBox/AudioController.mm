@@ -12,9 +12,13 @@
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
 
+//DECLARE CONSTANT HERE FOR BUFFER SIZE
+
 //Declare our remote unit and effect right off
 AudioUnit remoteIOUnit;
 EffectState effectState; 
+
+float* fBuffer = new float[2048]; //BAD - HARD CODED, GLOBAL
 
 -(id)init
 {
@@ -174,7 +178,6 @@ OSStatus MyAURenderCallback (
     UInt32 bus1 = 1;
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
         
-    float* fBuffer = new float[1024]; //BAD, HARD CODED
     
     for (int bufCount=0; bufCount<ioData->mNumberBuffers; bufCount++) //for all buffers
     {
